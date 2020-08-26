@@ -1,0 +1,39 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.mycompany.shopping"
+    },
+    "jhipsterVersion": "6.9.1",
+    "applicationType": "monolith",
+    "baseName": "shopping",
+    "packageName": "com.mycompany.shopping",
+    "packageFolder": "com/mycompany/shopping",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MTVhNjFlYzc5Yzk3OTc3NjUxODdkZTM0MWFjNzA2YmEyZjcwNDE3ZGZiMjBiY2MwNDY1MTllN2Y5OTE1Y2E1ODc4OGFlOGIzMTRmNDUwOTUwOTNhYTNjMDk5ZWQxNzM1MGUxYmRjMmFhYzk5ODA0YTk2NTE0YjEyNjQ3MWUwMDY=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "flatly",
+    "clientThemeVariant": "dark",
+    "creationTimestamp": 1598468694249,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "blueprints": []
+  }
+}
