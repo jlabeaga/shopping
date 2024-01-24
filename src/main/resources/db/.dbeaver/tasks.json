@@ -1,0 +1,24 @@
+{
+	"561fc855-4e52-41ae-a807-5b2a00a85397": {
+		"task": "scriptExecute",
+		"label": "shopping_recreate_db",
+		"description": "",
+		"createTime": "202401221818",
+		"updateTime": "202401221818",
+		"state": {
+			"scriptFiles": [
+				"/shopping/initDB.sql",
+				"/shopping/populateDB.sql"
+			],
+			"dataSources": [
+				{
+					"project": "shopping",
+					"dataSource": "mysql8-18d3213b458-5abe532ab8b8160a"
+				}
+			],
+			"ignoreErrors": false,
+			"dumpQueryResultsToLog": false,
+			"autoCommit": false
+		}
+	}
+}

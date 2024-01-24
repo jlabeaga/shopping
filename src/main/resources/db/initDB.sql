@@ -1,0 +1,71 @@
+DROP TABLE IF EXISTS order_lines;
+DROP TABLE IF EXISTS orders;
+DROP TABLE IF EXISTS cart_items;
+DROP TABLE IF EXISTS carts;
+DROP TABLE IF EXISTS store_items;
+DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS categories;
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE IF NOT EXISTS users (
+  id INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(100) NOT NULL,
+  UNIQUE KEY `username` (`username`)
+) engine=InnoDB;
+
+CREATE TABLE IF NOT EXISTS categories (
+  id INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  UNIQUE KEY `name` (`name`)
+) engine=InnoDB;
+
+CREATE TABLE IF NOT EXISTS products (
+  id INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  category_id INT(4) UNSIGNED NOT NULL,
+  price DECIMAL(10,2) not null default 0,
+  FOREIGN KEY (category_id) REFERENCES categories(id),
+  UNIQUE KEY `name` (`name`)
+) engine=InnoDB;
+
+CREATE TABLE IF NOT EXISTS store_items (
+  id INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  product_id INT(4) UNSIGNED NOT NULL,
+  quantity INT(4) UNSIGNED NOT NULL,
+  FOREIGN KEY (product_id) REFERENCES products(id)
+) engine=InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS carts (
+  id INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  cart_date DATETIME,
+  user_id INT(4) UNSIGNED NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+) engine=InnoDB;
+
+CREATE TABLE IF NOT EXISTS cart_items (
+  id INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  cart_id INT(4) UNSIGNED NOT NULL,
+  product_id INT(4) UNSIGNED NOT NULL,
+  quantity INT(4) UNSIGNED NOT NULL,
+  FOREIGN KEY (cart_id) REFERENCES carts(id),
+  FOREIGN KEY (product_id) REFERENCES products(id)
+) engine=InnoDB;
+
+CREATE TABLE IF NOT EXISTS orders (
+  id INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  order_date DATETIME,
+  user_id INT(4) UNSIGNED NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+) engine=InnoDB;
+
+CREATE TABLE IF NOT EXISTS order_lines (
+  id INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  order_id INT(4) UNSIGNED NOT NULL,
+  product_id INT(4) UNSIGNED NOT NULL,
+  quantity INT(4) UNSIGNED NOT NULL,
+  price DECIMAL(10,2) NOT NULL,
+  amount DECIMAL(10,2) NOT NULL,
+  FOREIGN KEY (order_id) REFERENCES orders(id),
+  FOREIGN KEY (product_id) REFERENCES products(id)
+) engine=InnoDB;
